@@ -160,9 +160,7 @@ public class ParserV2 {
         ArrayDeque<String> equationStack = new ArrayDeque<>(Arrays.asList(splitedEquation));
 
         while (!equationStack.isEmpty()) {
-            if (result.isEmpty()) {
-                result.offerLast(equationStack.pop());
-            } else if (equationStack.getFirst().matches("-?[0-9]+")) {
+            if (equationStack.getFirst().matches("-?[0-9]+")) {
                 result.offerLast(equationStack.pop());
             } else if (equationStack.getFirst().matches("[-+*/]")) {
                 if (signStack.isEmpty() || signStack.getFirst().equals("(")) {
